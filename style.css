@@ -1,32 +1,37 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
 html,
 body,
 div,
-header,
+span,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-button,
 p,
-a,
-ul,
-ol,
-img,
-tr,
-td,
-table {
+article,
+aside,
+figure,
+figcaption,
+main,
+footer,
+header,
+hgroup,
+menu,
+nav,
+audio,
+video,
+image {
   margin: 0;
   padding: 0;
+  border: 0;
   font-size: 100%;
   font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
 }
 
 :root {
@@ -38,7 +43,22 @@ table {
 }
 
 body {
-    background-color: var(--primary-bg);
-    font-size: 13px;
-    font-family: Manrope, "sans-serif";
+  background-color: var(--primary-bg);
+  font-size: 13px;
+  font-family: Manrope, "sans-serif";
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "image header"
+    "image subtext"
+    "image profile";
+    background-color: white;
+}
+
+.card-pic {
+  grid-area: image;
 }
