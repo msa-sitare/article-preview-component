@@ -43,22 +43,91 @@ body {
 }
 
 body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
   background-color: var(--primary-bg);
-  font-size: 13px;
   font-family: Manrope, "sans-serif";
 }
 
 .card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas:
-    "image header"
-    "image subtext"
-    "image profile";
-    background-color: white;
+  display: flex;
+  max-width: 730px;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .card-pic {
+  width: 100%;
+  height: 100%;
   grid-area: image;
+  width: 284px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 40px 40px auto 40px;
+  row-gap: 1rem;
+}
+
+h2 {
+  color: var(--dark-blue);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+
+}
+
+.card-subtext {
+  color: var(--saturated-blue);
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-share-btn {
+  width: 32px;
+  height: 32px;
+  background-color: var(--saturated-blue);
+  border-radius: 50%;
+  fill: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.detail {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 16px;
+  margin-right: auto;
+}
+
+.profile-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.profile-publishdate {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--light-blue);
 }
