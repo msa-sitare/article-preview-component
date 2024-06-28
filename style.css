@@ -55,15 +55,13 @@ body {
   max-width: 730px;
   background-color: white;
   border-radius: 12px;
-  overflow: hidden;
+  filter: drop-shadow(0px 24px 50px #00000010);
 }
 
 .card-pic {
-  width: 100%;
-  height: 100%;
-  grid-area: image;
   width: 284px;
   height: 280px;
+  border-radius: 12px 0 0 12px;
   object-fit: cover;
 }
 
@@ -71,7 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 40px 40px auto 40px;
+  margin: 40px 40px 20px 40px;
   row-gap: 1rem;
 }
 
@@ -80,7 +78,6 @@ h2 {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.75rem;
-
 }
 
 .card-subtext {
@@ -104,13 +101,14 @@ h2 {
 .profile-share-btn {
   width: 32px;
   height: 32px;
-  background-color: var(--saturated-blue);
+  background-color: var(--primary-bg);
   border-radius: 50%;
-  fill: white;
+  fill: var(--saturated-blue);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
 }
 
 .detail {
@@ -124,10 +122,76 @@ h2 {
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--dark-blue);
+  margin-bottom: 8px;
 }
 
 .profile-publishdate {
+  
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--light-blue);
+}
+
+.profile-popup {
+  position: absolute;
+  bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 36px;
+  border-radius: 12px;
+  background-color: var(--dark-blue);
+  cursor: default;
+  filter: drop-shadow(0px 24px 20px #0000001a);
+}
+
+.profile-popup::after {
+  content: "";
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid var(--dark-blue);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: var(--dark-blue);
+  border-bottom-color: transparent;
+}
+
+.profile-popup p {
+  color: white;
+  font-weight: 200;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+}
+
+.hidden {
+  display: none ;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    max-width: 328px;
+  }
+
+  .card-pic {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .card-info {
+    margin: 36px 32px 20px;
+  }
+
+  h2 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .profile {
+    margin-top: 8px;
+  }
 }
