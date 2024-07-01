@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const shareButton = document.querySelector(".profile-share-btn");
   const sharePopup = document.querySelector(".profile-popup");
+  const sharePopupMobile = document.querySelector(".profile-mobile-popup");
 
   const mediaQuery = window.matchMedia("(min-width: 768px)");
 
@@ -16,8 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document.removeEventListener("keydown", handleEscKeyPress);
   }
 
+  function removeEventListenersMobile() {
+    shareButton.removeEventListener("click", togglePopupMobile);
+    document.removeEventListener("click", handleClickOutsideMobile);
+  }
+
   function togglePopup(event) {
     sharePopup.classList.toggle("hidden");
+    shareButton.classList.toggle("active");
+  }
+
+  function togglePopupMobile(event) {
+    sharePopupMobile.classList.toggle("hidden");
     shareButton.classList.toggle("active");
   }
 
@@ -27,6 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
       !shareButton.contains(event.target)
     ) {
       hidePopup();
+    }
+  }
+
+  function handleClickOutsideMobile(event) {
+    if (
+      !sharePopupMobile.contains(event.target) &&
+      !shareButton.contains(event.target)
+    ) {
+      hidePopupMobile();
     }
   }
 
@@ -43,9 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function hidePopupMobile() {
+    if (!sharePopupMobile.classList.contains("hidden")) {
+      sharePopupMobile.classList.add("hidden");
+      shareButton.classList.remove("active");
+    }
+  }
+
   function handleMediaChange(e) {
     if (e.matches) {
       addEventListeners();
+      hidePopupMobile();
+      removeEventListenersMobile();
     } else {
       removeEventListeners();
       hidePopup();
@@ -54,8 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addSmallScreenListeners() {
-    // Add any event listeners or behavior specific to small screens
-    // Example: maybe a simple toggle with different styling or logic
+    shareButton.addEventListener("click", togglePopupMobile);
+    document.addEventListener("click", handleClickOutsideMobile);
   }
 
   handleMediaChange(mediaQuery);
