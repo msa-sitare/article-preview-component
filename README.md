@@ -13,22 +13,26 @@ This is a solution to the [Article preview component](https://www.frontendmentor
 
 ## Overview
 
-![Article preview component](./design/desktop-preview.jpg)
+![Article preview desktop](./design/finished-desktop.PNG)
+![Article preview mobile](./design/finished-mobile.PNG)
 
 
 ### Links
 
 - Solution URL: [Repository URL](https://github.com/msa-sitare/article-preview-component)
-- Live Site URL: [Live Site URL]()
+- Live Site URL: [Live Site URL](https://msa-sitare.github.io/article-preview-component/)
 
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- HTML
+- CSS
 - JavaScript
 
 
 ### What I learned
+
+-creating small events with js
+-struggled to create slide-in/slide-out animation for popup when visibility toggled.
